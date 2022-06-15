@@ -1,0 +1,38 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "ASP NET Core";
+}
+
+<div class="container">
+    <h1>Online college queue</h1>
+    <form enctype="multipart/form-data" method="post">
+        <div class="form-group">
+            <div>
+                <span asp-validation-for="FormEmail.FullName" class="text-danger"></span>
+            </div>
+            <input asp-for="FormEmail.FullName" placeholder="Full Name" />
+        </div>
+        <div class="form-group">
+            <div>
+                <span asp-validation-for="FormEmail.PhoneNumber" class="text-danger"></span>
+            </div>
+            <input asp-for="FormEmail.PhoneNumber" placeholder="Phone number" class="phone-number"/>
+        </div>
+        <div class="form-group">
+            <div>
+                <span asp-validation-for="FormEmail.Email" class="text-danger"></span>
+            </div>
+            <input asp-for="FormEmail.Email" placeholder="Email Address" />
+        </div>
+        <div class="form-group"> 
+            <p class="text">More information <a href="https://dotnet.microsoft.com/en-us/apps/aspnet">here</a>)</p>
+            <div class="upload">
+                <label class="button" asp-for="FormEmail.Attachment"></label>
+                <input asp-for="FormEmail.Attachment" type="file" multiple/>
+                <span asp-validation-for="FormEmail.Attachment" class="text-danger"></span>
+            </div>
+        </div>
+        <input asp-page-handler="Upload" class="btn" type="submit" value="Send" />
+    </form>
+</div>
